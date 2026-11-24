@@ -17,8 +17,9 @@ l'historique dans [thunderstore/CHANGELOG.md](thunderstore/CHANGELOG.md).
 - Usure par l'eau : `WearNTear.UpdateWear` retire 5 de vie toutes les 60 s à une pièce mouillée (pluie sans toit
   ou `IsUnderWater`) tant qu'elle est au-dessus de 50 %, seulement si `m_noRoofWear` est vrai. La copie l'a à faux.
 - Pièces copiées : celles du marteau (`Hammer`, `m_buildPieces`) de catégorie `BuildingWorkbench`, dont toutes les
-  ressources sont du `Wood`, avec `m_noRoofWear` vrai et `m_materialType` `Wood`. La liste est écrite dans
-  `LogOutput.log` au lancement.
+  ressources sont du `Wood` et `m_materialType` `Wood`, que `m_noRoofWear` soit vrai ou non (pentes, poutres en
+  biais et toits de chaume l'ont déjà à faux : copiés pour la teinte). `LogOutput.log` liste au lancement les pièces
+  copiées et les pièces en bois du marteau laissées de côté.
 - Nom : `"$piece_xxx ($emeraude_resine)"`, `Localization.Localize` traduit chaque jeton (`)` termine un jeton).
 - Onglet : catégorie Jötunn `Resined wood`, jeton `jotunn_cat_resined_wood`, traduit en français par le mod.
 - Teinte : matériaux copiés une fois chacun, `_Color` multipliée par `Amber`.

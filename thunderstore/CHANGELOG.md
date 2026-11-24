@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 — 2026-11-24
+- Resined versions of the sloped walls (26° and 45°, upright and upside down), the 26° and 45° beams and the thatch roofs (slopes, ridges, inner and outer corners), so a whole plain wood house can share the amber color. The game already spared them from rain wear: for these pieces the resined version is about the look.
+- Every player needs this version.
+
 ## 1.1.0 — 2026-11-23
 - Resined pieces now cost twice the wood of the original instead of the original recipe plus 1 resin: resin was too slow to farm.
 - Pieces already built keep working; deconstructing them now gives back the doubled wood, not the resin.

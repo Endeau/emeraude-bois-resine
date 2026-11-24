@@ -1,5 +1,6 @@
 // Emeraude Bois résiné — une version résinée de chaque pièce de construction en bois simple, qui ne
-// s'abîme plus sous la pluie ni dans l'eau. Même pièce, deux fois plus de bois.
+// s'abîme plus sous la pluie ni dans l'eau. Même pièce, deux fois plus de bois. Les pentes, poutres en
+// biais et toits de chaume, que la pluie n'use déjà pas, sont copiés aussi pour que tout ait la même teinte.
 //
 // Le jeu use une pièce mouillée de 5 % toutes les 60 s jusqu'à 50 % (WearNTear.UpdateWear) tant que
 // m_noRoofWear est vrai. La copie résinée l'a à faux ; tout le reste (vie, support, matériau) est inchangé.
@@ -21,7 +22,7 @@ namespace EmeraudeBoisResine
     {
         public const string Guid = "emeraude.boisresine";
         public const string Name = "Emeraude Bois Resine";
-        public const string Version = "1.1.0";
+        public const string Version = "1.2.0";
 
         const string Suffix = "_resine";
         const string Category = "Resined wood";
@@ -59,9 +60,14 @@ namespace EmeraudeBoisResine
             var hammer = PrefabManager.Instance.GetPrefab("Hammer").GetComponent<ItemDrop>();
             var tinted = new Dictionary<Material, Material>();
             var added = new List<string>();
+            var skipped = new List<string>();
             foreach (var original in hammer.m_itemData.m_shared.m_buildPieces.m_pieces.ToList())
             {
-                if (!IsPlainWood(original)) continue;
+                if (!IsPlainWood(original))
+                {
+                    if (IsWoodMaterial(original)) skipped.Add(original.name);
+                    continue;
+                }
                 var piece = new CustomPiece(original.name + Suffix, original.name, ConfigFrom(original.GetComponent<Piece>()));
                 piece.PiecePrefab.GetComponent<WearNTear>().m_noRoofWear = false;
                 Tint(piece.PiecePrefab, tinted);
@@ -69,19 +75,23 @@ namespace EmeraudeBoisResine
                 added.Add(original.name);
             }
             Logger.LogInfo($"{added.Count} pièces résinées : {string.Join(", ", added)}");
+            Logger.LogInfo($"{skipped.Count} pièces en bois non résinées : {string.Join(", ", skipped)}");
         }
 
-        // Pièce de l'onglet Construction qui ne coûte que du bois et s'abîme sous la pluie.
+        // Pièce de l'onglet Construction qui ne coûte que du bois.
         static bool IsPlainWood(GameObject prefab)
         {
             var piece = prefab ? prefab.GetComponent<Piece>() : null;
-            var wear = prefab ? prefab.GetComponent<WearNTear>() : null;
-            return piece && wear && piece.m_enabled
+            return IsWoodMaterial(prefab) && piece.m_enabled
                 && piece.m_category == Piece.PieceCategory.BuildingWorkbench
                 && piece.m_resources.Length > 0
-                && piece.m_resources.All(requirement => requirement.m_resItem && requirement.m_resItem.name == "Wood")
-                && wear.m_noRoofWear
-                && wear.m_materialType == WearNTear.MaterialType.Wood;
+                && piece.m_resources.All(requirement => requirement.m_resItem && requirement.m_resItem.name == "Wood");
+        }
+
+        static bool IsWoodMaterial(GameObject prefab)
+        {
+            var wear = prefab ? prefab.GetComponent<WearNTear>() : null;
+            return wear && prefab.GetComponent<Piece>() && wear.m_materialType == WearNTear.MaterialType.Wood;
         }
 
         static PieceConfig ConfigFrom(Piece original)
