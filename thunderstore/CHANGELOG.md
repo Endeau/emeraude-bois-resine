@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.0 — 2026-11-24
+- Resined versions of the 67° plain wood pieces: sloped walls (upright and upside down), beam, wall top, and thatch roof slope, ridge and corners.
+- If a copied piece needs something other than wood, only the wood is doubled.
+- Every player needs this version.
+
 ## 1.2.0 — 2026-11-24
 - Resined versions of the sloped walls (26° and 45°, upright and upside down), the 26° and 45° beams and the thatch roofs (slopes, ridges, inner and outer corners), so a whole plain wood house can share the amber color. The game already spared them from rain wear: for these pieces the resined version is about the look.
 - Every player needs this version.

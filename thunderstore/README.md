@@ -4,7 +4,7 @@ Plain wood rots: a wood piece left in the rain without a roof, or standing in wa
 
 ## The pieces
 
-Hammer, *Resined wood* tab. Every building piece that costs only wood gets a copy: floors, walls, sloped walls, beams, poles, stairs, ladder, doors, gate, thatch roofs, and so on. Sloped walls, angled beams and thatch roofs already don't wear out in the rain: their resined version is there so the whole house shares the same color. The list is built at startup from the game's own pieces.
+Hammer, *Resined wood* tab. Every building piece that costs only wood gets a copy: floors, walls, sloped walls (26°, 45° and 67°), beams, poles, stairs, ladder, doors, gate, thatch roofs, and so on. Sloped walls, angled beams and thatch roofs already don't wear out in the rain: their resined version is there so the whole house shares the same color. The list is built at startup from the game's own pieces.
 
 - **Cost:** twice the wood of the original, at the same crafting station. Deconstructing gives everything back.
 - **No water wear:** rain and water no longer damage them. Health, support and strength stay the same as the original.
