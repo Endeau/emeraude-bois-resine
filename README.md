@@ -18,8 +18,8 @@ l'historique dans [thunderstore/CHANGELOG.md](thunderstore/CHANGELOG.md).
   ou `IsUnderWater`) tant qu'elle est au-dessus de 50 %, seulement si `m_noRoofWear` est vrai. La copie l'a à faux.
 - Pièces copiées : celles du marteau (`Hammer`, `m_buildPieces`) de catégorie `BuildingWorkbench`, dont toutes les
   ressources sont du `Wood` et `m_materialType` `Wood`, que `m_noRoofWear` soit vrai ou non (pentes, poutres en
-  biais et toits de chaume l'ont déjà à faux : copiés pour la teinte). Les pièces 67° du bois simple, écartées par ce
-  filtre, sont prises par leur nom (`Extra`). `LogOutput.log` liste au lancement les pièces copiées et les pièces
+  biais et toits de chaume l'ont déjà à faux : copiés pour la teinte). Les pièces 67° du bois simple, la fenêtre, la
+  clôture et le portillon, écartés par ce filtre, sont pris par leur nom (`Extra`). `LogOutput.log` liste au lancement les pièces copiées et les pièces
   `wood_` laissées de côté avec la raison (catégorie, recette, matériau). Seul le bois est doublé dans la recette.
 - Nom : `"$piece_xxx ($emeraude_resine)"`, `Localization.Localize` traduit chaque jeton (`)` termine un jeton).
 - Onglet : catégorie Jötunn `Resined wood`, jeton `jotunn_cat_resined_wood`, traduit en français par le mod.

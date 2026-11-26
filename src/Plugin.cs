@@ -22,16 +22,18 @@ namespace EmeraudeBoisResine
     {
         public const string Guid = "emeraude.boisresine";
         public const string Name = "Emeraude Bois Resine";
-        public const string Version = "1.3.0";
+        public const string Version = "1.4.0";
 
         const string Suffix = "_resine";
         const string Category = "Resined wood";
         const int WoodFactor = 2;
-        // Pièces 67° du bois simple, écartées par IsPlainWood : prises par leur nom.
+        // Pièces en bois écartées par IsPlainWood, prises par leur nom : les 67° (catégorie DeepNorth),
+        // la fenêtre (clous de bronze en plus du bois), la clôture et le portillon (catégorie Misc).
         static readonly HashSet<string> Extra = new HashSet<string>
         {
             "wood_wall_roof_67_a", "wood_wall_roof_67_upsidedown", "wood_beam_67", "wood_wall_roof_top_67",
             "wood_roof_67", "wood_roof_icorner_67", "wood_roof_ocorner_67", "wood_roof_top_67",
+            "wood_window", "wood_fence", "wood_fence_gate",
         };
         // Ton miel plus sombre, multiplié à la couleur du bois.
         static readonly Color Amber = new Color(0.9f, 0.68f, 0.42f);

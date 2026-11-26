@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.0 — 2026-11-26
+- Resined versions of the wooden window, the wooden fence and the fence gate. Only the wood is doubled: the window still takes 2 bronze nails.
+- Every player needs this version.
+
 ## 1.3.0 — 2026-11-24
 - Resined versions of the 67° plain wood pieces: sloped walls (upright and upside down), beam, wall top, and thatch roof slope, ridge and corners.
 - If a copied piece needs something other than wood, only the wood is doubled.
